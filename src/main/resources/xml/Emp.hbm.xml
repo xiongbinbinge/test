@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="cn.accp.entity">
+    <class name="Emp">
+        <id name="empno">
+            <generator class="assigned"/>
+        </id>
+        <property name="ename"/>
+        <set name="projects" table="proemp" inverse="true">
+            <key column="rempid"/>
+            <many-to-many class="Project" column="rproid"/>
+        </set>
+    </class>
+</hibernate-mapping>
